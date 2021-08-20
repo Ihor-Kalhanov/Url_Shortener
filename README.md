@@ -1,9 +1,11 @@
 # Url_Shortener
 
-For installation project
-- docker-compose up --build
-  
-  
+ ```
+ git clone https://github.com/Ihor-Kalhanov/Url_Shortener.git
+````
+
+- docker-compose up --build 
+
   
   
   ![plot](main.png)
