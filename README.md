@@ -2,4 +2,4 @@
 
 For installation project
   docker-compose up --build
-  ![plot](.main.png)
+  ![plot](main.png)
