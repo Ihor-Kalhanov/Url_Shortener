@@ -1,0 +1,27 @@
+parameters:
+  - name: body
+    in: body
+    schema:
+      $ref: '#/definitions/Url'
+responses:
+  200:
+    description: Returns a short url
+    content:
+      application/json:
+        schema:
+          $ref: '#/definitions/Response'
+      application/xml:
+        schema:
+          $ref: '#/definitions/Response'
+definitions:
+  Url:
+    type: object
+    properties:
+      base_url:
+        type: string
+  Response:
+    type: object
+    properties:
+      result:
+        type: string
+        example: gtfo.gq/d1n

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Url Shortener</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <link href="{{ url_for('static', filename='favicon.ico') }}" rel="icon" type="image/x-icon"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body style="background: #FFFFFF">
+<style type="text/css">
+    #inp {
+        width: 70%;
+        margin: auto;
+        margin-top: 7%;
+    }
+</style>
+
+<style type="text/css">
+    #site-title {
+        margin: auto;
+        margin-top: 2%;
+    }
+</style>
+
+<style type="text/css">
+    #result {
+        width: 70%;
+        margin: auto;
+        margin-top: 3%;
+        visibility: hidden
+    }
+</style>
+
+<div id="site-title">
+    <h1 style="text-align: center">GTFO</h1>
+    <h1 style="text-align: center">Shortener</h1>
+</div>
+
+<div class="input-group input-group-lg" id="inp">
+    <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroup-sizing-lg">URL</span>
+    </div>
+    <input placeholder="https://google.com/" type="text" id="base-url" class="form-control"
+           aria-label="Large"
+           aria-describedby="inputGroup-sizing-sm">
+    <div class="invalid-feedback">Wrong url format.</div>
+    <button id="res-btn" onclick="request_ajax()" style="margin-top: 10px" type="button"
+            class="btn btn-primary btn-lg btn-block">
+        Short it
+    </button>
+    <script>
+        let progressBar = "<span style=\"width: 1.5rem; height: 1.5rem\"; class=\"spinner-border mr-2 spinner-border-sm\" role=\"status\" aria-hidden=\"true\"></span>";
+
+        function request_ajax() {
+            let button = $('button#res-btn');
+            let original = button.html();
+            button.html(progressBar);
+            button.attr("disabled", "disabled");
+            return do_ajax(button, original);
+        }
+
+        function do_ajax(button, original) {
+            let baseField = $('#base-url');
+            let responseInput = $('#result-url');
+            let textValue = baseField.val();
+            $.ajax({
+                url: "/short",
+                type: 'POST',
+                data: {"base_url": textValue},
+                success: function (response) {
+                    $('#result').css({visibility: "visible"});
+                    responseInput.val(response.result);
+                    button.html(original);
+                    button.removeAttr('disabled');
+                    baseField.removeClass('is-invalid')
+                },
+                error: function () {
+                    button.html(original);
+                    button.removeAttr('disabled');
+                    baseField.addClass('is-invalid');
+                    $('#result').css({visibility: "hidden"});
+                }
+            });
+        }
+    </script>
+
+</div>
+<div id="result">
+    <div id="site-title">
+        <h1 style="text-align: center">Here's your short url</h1>
+    </div>
+    <div class="input-group input-group-lg">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-lg">Result</span>
+        </div>
+        <input id="result-url" readonly type="text" class="form-control" aria-label="Large"
+               aria-describedby="inputGroup-sizing-sm">
+        <button onclick="doCopy()" style="margin-top: 10px" type="button"
+                class="btn-primary btn-lg btn-block btn btn-success">Copy to
+            clipboard
+        </button>
+        <script>
+            function doCopy() {
+                let copyText = document.getElementById("result-url");
+                copyText.select();
+                document.execCommand("copy");
+            }
+        </script>
+    </div>
+</div>
+<div id="api" style="margin-left: 1%">
+    <a href="/apidocs">API</a>
+</div>
+</body>
+</html>
