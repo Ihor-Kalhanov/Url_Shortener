@@ -3,10 +3,13 @@
  ```
  git clone https://github.com/Ihor-Kalhanov/Url_Shortener.git
 ````
-
-- docker-compose up --build 
-
-  
+```
+cd Url_Shortener
+````
+```
+docker-compose up --build 
+````
+ 
   
   ![plot](main.png)
 
