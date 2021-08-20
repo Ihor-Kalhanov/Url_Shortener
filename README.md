@@ -16,3 +16,9 @@ For installation project
 {
   "base_url": "string"
 }
+
+````
+Responce 
+{
+  "result": "0.0.0.0:5000/6"
+}
