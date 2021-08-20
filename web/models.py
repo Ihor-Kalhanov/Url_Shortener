@@ -5,7 +5,7 @@ from playhouse.db_url import connect
 
 import utils
 
-# db = connect(os.environ.get('DATABASE_URL'))
+
 db = connect('sqlite:///data.db')
 
 

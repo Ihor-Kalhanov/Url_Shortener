@@ -1,19 +1,10 @@
-version: "3.9"
+version: "3"
+
 
 services:
-  db:
-
-
-
   web:
-    build: web/
-    command: python app.py
+    build: .
     volumes:
       - .:/web
     ports:
-      - "8000:8000"
-    depends_on:
-      - db
-
-
-
+      - "5000:5000"
