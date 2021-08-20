@@ -18,7 +18,7 @@ For installation project
 }
 
 ````
-Responce 
+```
 {
-  "result": "0.0.0.0:5000/6"
+  "result": "Your new short url"
 }
