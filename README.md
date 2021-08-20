@@ -7,3 +7,11 @@ For installation project
   
   
   ![plot](main.png)
+
+
+['POST'] `.config.json`
+
+```
+{
+  "base_url": "string"
+}
