@@ -9,7 +9,8 @@ For installation project
   ![plot](main.png)
 
 
-['POST'] `.config.json`
+['POST']- "http://0.0.0.0:5000/short"
+
 
 ```
 {
