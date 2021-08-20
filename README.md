@@ -4,7 +4,7 @@
  git clone https://github.com/Ihor-Kalhanov/Url_Shortener.git
 ````
 ```
-cd Url_Shortener
+cd Url_Shortener/
 ````
 ```
 docker-compose up --build 
