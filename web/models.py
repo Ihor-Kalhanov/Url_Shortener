@@ -1,10 +1,7 @@
-
-
 import peewee
 from playhouse.db_url import connect
 
-import utils
-
+from web.utils import decode
 
 db = connect('sqlite:///data.db')
 
@@ -23,7 +20,7 @@ class UrlModel(BaseUrlModel):
 
     @classmethod
     def get_base_by_short(cls, short):
-        return cls.get_or_none(id=utils.decode(short))
+        return cls.get_or_none(id=decode(short))
 
     @classmethod
     def add_url(cls, url):

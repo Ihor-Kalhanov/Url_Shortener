@@ -5,8 +5,8 @@ from validators import url
 from webargs import fields, ValidationError
 from webargs.flaskparser import use_kwargs
 
-from utils import encode
-from models import UrlModel
+from web.utils import encode
+from web.models import UrlModel
 
 
 def validate_url(base_url):
