@@ -18,7 +18,9 @@ class TestEndpoint:
             "base_url": f'{self.TEST_URL}'
         }
         endpoint = 'http://0.0.0.0:5000/short'
-        response = client.post(endpoint, data=json.dumps(body), headers=headers)
+        response = client.post(endpoint,
+                               data=json.dumps(body),
+                               headers=headers)
 
         assert response.status_code == 200
         assert response.content_type == type
@@ -35,13 +37,8 @@ class TestEndpoint:
             "base_url": f'{invalid_long_url}'
         }
         endpoint = 'http://0.0.0.0:5000/short'
-        response = client.post(endpoint, data=json.dumps(body), headers=headers)
+        response = client.post(endpoint,
+                               data=json.dumps(body),
+                               headers=headers)
 
         assert response.status_code == 422
-
-
-
-
-
-
-

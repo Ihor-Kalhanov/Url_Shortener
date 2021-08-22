@@ -9,8 +9,12 @@ cd Url_Shortener/
 ```
 docker-compose up --build 
 ````
+  ![plot](docker_is_running.png)
  
   
+
+<h1>The main page</h1>
+
   ![plot](main.png)
 
 
