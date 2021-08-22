@@ -42,3 +42,5 @@ class TestEndpoint:
                                headers=headers)
 
         assert response.status_code == 422
+        assert 'errors' in json.dumps(response.json)
+
