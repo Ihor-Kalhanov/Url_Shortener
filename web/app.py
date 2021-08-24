@@ -5,8 +5,8 @@ from flask_restful import Api
 from webargs.flaskparser import parser, abort
 from flasgger import Swagger
 
-from models import UrlModel
-from resources.short import ShortUrl
+from web.models import UrlModel
+from web.resources.short import ShortUrl
 
 app = Flask(__name__)
 api = Api(app)
@@ -48,5 +48,7 @@ def index():
 
 api.add_resource(ShortUrl, '/short')
 
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=os.environ.get('PORT'))
+

@@ -1,7 +1,7 @@
 import peewee
 from playhouse.db_url import connect
 
-from utils import decode
+from web.utils import decode
 
 db = connect('sqlite:///data.db')
 
