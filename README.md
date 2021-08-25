@@ -3,29 +3,27 @@
  ```
  git clone https://github.com/Ihor-Kalhanov/Url_Shortener.git
 ````
+
 ```
 cd Url_Shortener/
 ````
+
 ```
 docker-compose up --build 
 ````
 
- 
-  
-
 <h1>The main page</h1>
 
-  ![plot](docs/main.png)
-
+![plot](docs/main.png)
 
 ['POST']- "http://0.0.0.0:5000/short"
-
 
 ```
 {
   "base_url": "string"
 }
 ````
+
 <h2>After you requested, you can see response</h2>
 
 ```
@@ -34,12 +32,13 @@ docker-compose up --build
 }
 ````
 
-##<h1>The EXTRA FEATURES</h1>
+## <h1>The EXTRA FEATURES</h1>
 
 <h2>Features 1</h1>
 We have an endpoint `/shortened_urls_count` to which we throw a query to get how many people went on a short url
 
 ['POST']- `/shortened_urls_count`
+
 ```
 {
   "url_count": "your_url"
@@ -47,20 +46,25 @@ We have an endpoint `/shortened_urls_count` to which we throw a query to get how
 ````
 
 RESPONSE BODY
+
 ```
 {
   "count_url": 'count_of_your_url'
 }
 ````
+
 ### But if you follow the link several times from one IP address, it will change only once and no more.
+
 ### For example, the user clicks on the link 20 times, but the count will increase only by 1
 
 <h2>Features 2</h1>
 
 ### We can look at the top 10 links by the most popular people
+
 ['GET'] - `/shortened_urls_count`
 
 ### As a result we can see
+
 ```
 {
   "10 most popular urls": {
