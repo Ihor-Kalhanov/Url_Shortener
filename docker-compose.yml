@@ -14,18 +14,13 @@ services:
     ports:
       - "5000:5000"
 
-
-
   nginx:
-    container_name: nginx
+    image: nginx:latest
     restart: always
-    build: ./nginx
-    networks:
-      - apinetwork
-    expose:
-      - "8080"
     ports:
-      - "80:8080"
+      - "8080:8080"
+    volumes:
+      - ./nginx:/ect/nginx/conf.d/default.conf
 
 networks:
   apinetwork:

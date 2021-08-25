@@ -69,4 +69,3 @@ class IPModel(BaseUrlModel):
 
 
 db.create_tables([UrlModel, IPModel], safe=True)
-

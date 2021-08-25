@@ -1,5 +1,3 @@
-import os
-
 from flask import Flask, redirect, render_template
 from flask_restful import Api
 from webargs.flaskparser import parser, abort
@@ -48,8 +46,3 @@ def index():
 
 api.add_resource(ShortUrl, '/short')
 api.add_resource(CountUrl, '/shortened_urls_count')
-
-
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=os.environ.get('PORT'))
-
