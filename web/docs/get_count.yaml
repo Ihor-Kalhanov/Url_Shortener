@@ -1,0 +1,22 @@
+responses:
+  200:
+    description: Returns the most popular url
+    content:
+      application/json:
+        schema:
+          $ref: '#/definitions/Response'
+      application/xml:
+        schema:
+          $ref: '#/definitions/Response'
+definitions:
+  Url:
+    type: object
+    properties:
+      url_count:
+        type: string
+  Response:
+    type: object
+    properties:
+      result:
+        type: string
+        example: gtfo.gq/d1n

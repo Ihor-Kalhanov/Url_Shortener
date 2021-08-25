@@ -36,6 +36,7 @@ class CountUrl(Resource):
         'url_count': fields.Str(validate=validate_url)
     }
 
+    @swag_from('../docs/get_count.yaml')
     def get(self):
 
         data = UrlModel.get_top_10_count()
