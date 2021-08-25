@@ -6,7 +6,7 @@ from webargs.flaskparser import parser, abort
 from flasgger import Swagger
 
 from web.models import UrlModel
-from web.resources.short import ShortUrl
+from web.resources.short import ShortUrl, CountUrl
 
 app = Flask(__name__)
 api = Api(app)
@@ -47,6 +47,7 @@ def index():
 
 
 api.add_resource(ShortUrl, '/short')
+api.add_resource(CountUrl, '/shortened_urls_count')
 
 
 if __name__ == '__main__':
