@@ -9,13 +9,13 @@ cd Url_Shortener/
 ```
 docker-compose up --build 
 ````
-  ![plot](docker_is_running.png)
+  ![plot](docs/docker_is_running.png)
  
   
 
 <h1>The main page</h1>
 
-  ![plot](main.png)
+  ![plot](docs/main.png)
 
 
 ['POST']- "http://0.0.0.0:5000/short"
