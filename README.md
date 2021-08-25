@@ -52,13 +52,13 @@ RESPONSE BODY
   "count_url": 'count_of_your_url'
 }
 ````
-###But if you follow the link several times from one IP address, it will change only once and no more.
-###For example, the user clicks on the link 20 times, but the count will increase only by 1
+### But if you follow the link several times from one IP address, it will change only once and no more.
+### For example, the user clicks on the link 20 times, but the count will increase only by 1
 
 <h2>Features 2</h1>
 
-###We can look at the top 10 links by the most popular people
-['GET']- `/shortened_urls_count`
+### We can look at the top 10 links by the most popular people
+['GET'] - `/shortened_urls_count`
 
 ### As a result we can see
 ```
