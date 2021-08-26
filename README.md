@@ -14,7 +14,8 @@ make build
 
 <h1>The main page</h1>
 
-![plot](docs/main.png)
+
+![plot](docs/main_page.png)
 
 ['POST']- "http://0.0.0.0:5000/short"
 
