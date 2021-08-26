@@ -3,7 +3,7 @@ from web.utils import encode, decode
 
 class TestUtils:
 
-    def test_encode(self, url_model):
+    def test_encode(self, url_model, app):
         test_encode_url = encode(url_model.id)
 
         assert isinstance(test_encode_url, str)

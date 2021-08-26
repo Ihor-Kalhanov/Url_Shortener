@@ -47,8 +47,3 @@ def create_app():
     api.add_resource(CountUrl, '/shortened_urls_count')
 
     return app
-
-
-if __name__ == '__main__':
-    app = create_app()
-    app.run()

@@ -5,4 +5,4 @@ RUN apt-get update && apt-get update -y && pip install --no-cache-dir -r require
 COPY . /web
 WORKDIR /web
 EXPOSE 5001
-CMD ["gunicorn", "-w", "3", "-b", ":5000", "-t", "360", "--reload", "web.app:app"]
+CMD ["gunicorn", "-w", "3", "-b", ":5000", "-t", "360", "--reload", "web.app:create_app()"]
