@@ -9,7 +9,7 @@ cd Url_Shortener/
 ````
 
 ```
-docker-compose up --build 
+make build 
 ````
 
 <h1>The main page</h1>
@@ -80,3 +80,9 @@ RESPONSE BODY
     "url: <your url10 >": "count - 1",
   }
 }
+````
+## <h1>Setup tests</h1>
+```
+pytest web/tests
+````
+![plot](docs/run_test.png)

@@ -3,6 +3,7 @@ from flask_restful import Api
 from webargs.flaskparser import parser, abort
 from flasgger import Swagger
 
+from web.controllers.url import get_base_by_short
 from web.models import UrlModel
 from web.resources.short import ShortUrl, CountUrl
 
@@ -28,7 +29,7 @@ def api_reference():
 
 @app.route('/<short>')
 def do_redirect(short):
-    url = UrlModel.get_base_by_short(short)
+    url = get_base_by_short(UrlModel, short)
     if url:
         return redirect(url.base_url, code=302)
     abort(404)
@@ -46,3 +47,4 @@ def index():
 
 api.add_resource(ShortUrl, '/short')
 api.add_resource(CountUrl, '/shortened_urls_count')
+
