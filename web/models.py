@@ -31,8 +31,8 @@ class IPModel(BaseUrlModel):
     ip = peewee.CharField()
 
     @classmethod
-    def get_ip(cls, ip):
-        return cls.get_or_none(url=ip)
+    def get_url(cls, url):
+        return cls.get_or_none(url=url)
 
     @classmethod
     def add_ip(cls, url, ip):
