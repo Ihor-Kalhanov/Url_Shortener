@@ -5,9 +5,9 @@ from validators import url
 from webargs import fields, ValidationError
 from webargs.flaskparser import use_kwargs
 
-from web.controllers.url import get_top_10_count, get_count
+from web.controllers.url import UrlController
 from web.utils import encode
-from web.models import UrlModel, IPModel
+from web.models import UrlModel
 
 parser = reqparse.RequestParser()
 
@@ -39,8 +39,7 @@ class CountUrl(Resource):
 
     @swag_from('../docs/get_count.yaml')
     def get(self):
-
-        data = get_top_10_count()
+        data = UrlController.get_top_10_count()
         return {'10 most popular urls': data}
 
     @staticmethod
@@ -48,5 +47,5 @@ class CountUrl(Resource):
     @swag_from('../docs/count.yaml')
     def post(url_count):
         short_url = encode(UrlModel.add_url(url_count).id)
-        count = get_count(UrlModel, short_url)
+        count = UrlController.get_count(UrlModel, short_url)
         return {'count_url': count}

@@ -1,9 +1,6 @@
 import peewee
-import itertools
-from flask import request
-from playhouse.db_url import connect
 
-from web.utils import decode
+from playhouse.db_url import connect
 
 db = connect('sqlite:///data.db')
 
@@ -36,7 +33,5 @@ class IPModel(BaseUrlModel):
 
     @classmethod
     def add_ip(cls, url, ip):
-        return cls.get_ip(url) or cls.create(url=url, ip=ip)
+        return cls.get_url(url) or cls.create(url=url, ip=ip)
 
-
-db.create_tables([UrlModel, IPModel], safe=True)

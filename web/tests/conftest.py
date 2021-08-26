@@ -1,12 +1,15 @@
+import os
 import pytest
 
-from web.app import app as flask_app
-from web.models import UrlModel
+from web.app import create_app
+from web.models import UrlModel, IPModel, db
 
 
-@pytest.fixture
+@pytest.fixture(scope='module')
 def app():
-    yield flask_app
+    app = create_app()
+    yield app
+    db.drop_tables([UrlModel, IPModel])
 
 
 @pytest.fixture
