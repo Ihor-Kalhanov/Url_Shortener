@@ -14,6 +14,7 @@ def encode(url_id):
 
 
 def decode(value):
+
     num = 0
     idx = 0
     val_len = len(value)

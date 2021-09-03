@@ -55,7 +55,7 @@ class TestEndpoint:
         assert '10 most popular urls' in json.dumps(response.json)
 
     def test_count_get_by_one(self, client):
-        endpoint ='/shortened_urls_count'
+        endpoint = '/shortened_urls_count'
         type = 'application/json'
         headers = {
             'Content-Type': type,
